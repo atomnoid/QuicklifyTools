@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #18181b;
+  --background: #ffffff;
+  --muted: #71717a;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-zinc-800 hover:shadow-md active:translate-y-0 active:shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-border bg-white px-5 py-2.5 text-sm font-medium text-zinc-800 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-surface hover:shadow-md active:translate-y-0 active:shadow-sm;
+  }
+
+  .input-dropzone {
+    @apply mt-2 block w-full cursor-pointer rounded-xl border border-dashed border-zinc-300 bg-surface px-4 py-8 text-center text-sm text-zinc-600 transition duration-200 hover:border-zinc-400 hover:bg-zinc-100 file:mr-4 file:cursor-pointer file:rounded-lg file:border-0 file:bg-zinc-900 file:px-4 file:py-2 file:text-sm file:font-medium file:text-white hover:file:bg-zinc-800;
+  }
+
+  .card-soft {
+    @apply rounded-2xl border border-border bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
