@@ -5,7 +5,7 @@ import { seoKeywords, site, tools } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About QuicklifyTools | Fast File Conversion",
   description:
-    "Learn how QuicklifyTools delivers free online tools for students with no login tools free access and practical image and PDF workflows.",
+    "Learn how QuicklifyTools delivers free online tools for students with practical image and PDF workflows.",
   keywords: seoKeywords,
   openGraph: {
     title: `About ${site.name}`,
@@ -26,7 +26,7 @@ export default function AboutPage() {
           {site.name} ({site.domain}) is a small suite of free, browser-friendly tools for everyday
           image and PDF tasks. We focus on speed, clarity, and mobile layouts so you can get files
           processed quickly without installing software. Our product direction is simple: build the
-          fastest file converter online experience with no login tools free access for everyone.
+          most reliable online file converter experience with straightforward access for everyone.
         </p>
         <p>
           The image compressor uses{" "}
