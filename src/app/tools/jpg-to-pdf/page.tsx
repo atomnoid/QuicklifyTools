@@ -6,7 +6,7 @@ import { seoKeywords, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "JPG to PDF in Seconds | Online Converter",
   description:
-    "Convert JPG to PDF in seconds with a no signup pdf converter workflow built for students, professionals, and mobile users.",
+    "Convert JPG to PDF in seconds with a simple browser-based workflow built for students, professionals, and mobile users.",
   keywords: seoKeywords,
   openGraph: {
     title: "JPG to PDF Converter Online",
@@ -64,7 +64,7 @@ export default function JpgToPdfPage() {
           Because the conversion runs in-browser, your workflow stays fast on both desktop and mobile.
           This is helpful for free online tools for students who need to submit scanned notes and homework
           as PDFs, as well as freelancers who send receipts and signed pages to clients. If you are
-          comparing options and looking for the best free pdf converter online 2026, this tool keeps the
+          comparing options and looking for a practical PDF converter, this tool keeps the
           process clean, fast, and practical.
         </p>
         <p>
@@ -91,8 +91,7 @@ export default function JpgToPdfPage() {
             depending on image size and device speed.
           </p>
           <p>
-            <strong>Do I need an account?</strong> No, it works as a no signup pdf converter with a quick
-            upload-to-download flow.
+            <strong>Do I need an account?</strong> No, it works with a quick upload-to-download flow.
           </p>
         </div>
       </section>

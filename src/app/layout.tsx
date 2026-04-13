@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     description: site.description,
     url: site.url,
     siteName: site.name,
+    images: [
+      {
+        url: "/favicon.svg",
+        width: 512,
+        height: 512,
+        alt: `${site.name} logo`,
+      },
+    ],
     type: "website",
     locale: "en_US",
   },
@@ -35,6 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: site.title,
     description: site.description,
+    images: ["/favicon.svg"],
   },
   robots: { index: true, follow: true },
 };
@@ -52,6 +61,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-9545213366780547" />
+      </head>
       <body className={`${geistSans.className} flex min-h-screen flex-col antialiased`}>
         <Header />
         <main className="flex-1">

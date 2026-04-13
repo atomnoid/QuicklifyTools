@@ -7,7 +7,7 @@ import { seoKeywords, site, tools } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Free Online Tools for Images & PDFs – Fast & Simple",
   description:
-    "Free online tools for students and creators. Use the fastest file converter online with no login tools free and unlimited file tools free workflows.",
+    "Free online tools for students and creators, including an image compressor, PDF converter, and practical file utilities that work on mobile and desktop.",
   keywords: seoKeywords,
   openGraph: {
     title: "Free Online Tools for Images & PDFs – Fast & Simple",
@@ -137,43 +137,48 @@ export default function HomePage() {
             QuicklifyTools is built for everyday tasks where speed and simplicity matter. Our goal is to
             offer free online tools for students, creators, freelancers, and business teams who need fast
             file processing without software installation. Every workflow is designed around one clear
-            path: upload, process, download. If you want the fastest file converter online with a clean
+            path: upload, process, download. If you want a reliable online file converter with a clean
             interface, this platform is made for you.
           </p>
           <p className="mt-4">
-            We keep the user experience straightforward with no login tools free access, mobile-friendly
-            layouts, and short processing times. You can optimize photos for websites, convert PDF pages
-            into images for social sharing, or combine JPG files into one PDF for assignment and office
-            submissions. For users who handle files daily, the biggest benefit is consistency: every tool
-            works similarly, so you do not relearn the interface each time.
+            Today the platform focuses on an image compressor and PDF converter workflows, and we are
+            expanding content around related utilities such as a QR code generator so users can complete
+            more everyday tasks from one trusted destination.
+          </p>
+          <p className="mt-4">
+            We keep the user experience straightforward with mobile-friendly layouts and short processing
+            times. You can optimize photos for websites, convert PDF pages into images for social sharing,
+            or combine JPG files into one PDF for assignment and office submissions. For users who handle
+            files daily, the biggest benefit is consistency: every tool works similarly, so you do not
+            relearn the interface each time.
           </p>
 
           <h2 className="mt-8 text-2xl font-semibold tracking-tight text-zinc-900">Features</h2>
           <p className="mt-4">
             The image workflow supports practical targets such as compress image to 10kb, compress image
-            to 20kb, and compress image to 50kb when you need specific upload limits. We focus on reduce
-            image size without losing quality and realistic outcomes like up to 90% image compression
-            depending on source file type and dimensions. You can also make image smaller for WhatsApp or
+            to 20kb, and compress image to 50kb when you need specific upload limits. We focus on reducing
+            image size without losing quality in realistic use cases, depending on source file type and
+            dimensions. You can also make image smaller for WhatsApp or
             compress image for Instagram upload with a few taps.
           </p>
           <p className="mt-4">
             On the PDF side, we support pdf to jpg high quality free conversion and convert pdf to image
             without losing quality for pages that need clear details. The reverse tool helps with jpg to
-            pdf in seconds for document uploads. These utilities are built as a no signup pdf converter
-            experience and designed for unlimited file tools free access for regular usage.
+            pdf in seconds for document uploads. These utilities are designed to be easy to use without
+            unnecessary steps, so regular users can process files quickly.
           </p>
 
           <h2 className="mt-8 text-2xl font-semibold tracking-tight text-zinc-900">Why choose us</h2>
           <p className="mt-4">
             We prioritize trust and clarity. QuicklifyTools avoids fake promises, keeps ad areas clean,
-            and explains output expectations honestly. For example, compression depends on file structure,
-            so we use phrases like up to 90% image compression rather than guaranteed fixed percentages.
-            This keeps the site AdSense friendly and useful for long-term users.
+            and explains output expectations honestly. Because compression depends on file structure, we
+            avoid guaranteed fixed percentages and encourage users to review output quality before sharing.
+            This keeps the site useful for long-term users and aligned with transparent content standards.
           </p>
           <p className="mt-4">
             The project is also optimized for search visibility and social sharing with structured data,
-            metadata, Open Graph tags, and internal linking. If you are searching for the best free pdf
-            converter online 2026, this site combines practical tools with helpful guides so you can get
+            metadata, Open Graph tags, and internal linking. If you are searching for a practical PDF
+            converter and image compressor, this site combines useful tools with helpful guides so you can get
             results quickly and understand best practices.
           </p>
 

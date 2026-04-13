@@ -8,23 +8,22 @@ export const site = {
 } as const;
 
 export const seoKeywords = [
+  "free online tools",
   "compress image to 10kb",
   "compress image to 20kb",
   "compress image to 50kb",
+  "image compressor",
   "reduce image size without losing quality",
-  "up to 90% image compression",
-  "fastest image compressor online free",
+  "image compressor online",
   "make image smaller for WhatsApp",
   "compress image for Instagram upload",
+  "PDF converter",
   "pdf to jpg high quality free",
   "convert pdf to image without losing quality",
   "jpg to pdf in seconds",
-  "best free pdf converter online 2026",
-  "no signup pdf converter",
+  "QR code generator",
   "free online tools for students",
-  "fastest file converter online",
-  "no login tools free",
-  "unlimited file tools free",
+  "online file converter",
 ];
 
 export type ToolSlug = "image-compressor" | "pdf-to-jpg" | "jpg-to-pdf";

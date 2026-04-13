@@ -51,7 +51,7 @@ export default function CompressImage50KbGuidePage() {
         <p>
           A well-optimized image can reduce image size without losing quality for most online use. Smaller
           files upload faster, work better on slow mobile connections, and reduce storage overhead in web
-          workflows. Depending on the source file, you may see up to 90% image compression, though results
+          workflows. Depending on the source file, you may see strong compression gains, though results
           vary by image complexity.
         </p>
 
@@ -70,7 +70,7 @@ export default function CompressImage50KbGuidePage() {
         </p>
         <p>
           This workflow is useful for exam applications, identity proofs, and profile systems that require
-          fixed sizes. Combined with unlimited file tools free access, you can process multiple files back
+          fixed sizes. Combined with easy access to free tools, you can process multiple files back
           to back without account friction. For many users, this is the easiest way to stay productive on
           both mobile and desktop.
         </p>

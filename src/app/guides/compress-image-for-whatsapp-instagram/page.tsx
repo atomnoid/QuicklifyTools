@@ -50,7 +50,7 @@ export default function CompressImageForSocialGuidePage() {
         <h2 className="text-xl font-semibold text-zinc-900">Benefits</h2>
         <p>
           Social-ready optimization saves bandwidth, speeds up posting, and reduces failed uploads on weak
-          networks. A properly compressed image can still look sharp while offering up to 90% image
+          networks. A properly compressed image can still look sharp while offering meaningful image-size
           compression on some source files. This matters for creators who post daily and need quick,
           repeatable output quality across devices.
         </p>

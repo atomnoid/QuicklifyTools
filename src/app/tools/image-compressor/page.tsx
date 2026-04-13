@@ -4,9 +4,9 @@ import { ImageCompressorTool } from "@/components/tools/ImageCompressorTool";
 import { seoKeywords, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Fastest Image Compressor Online Free Tool",
+  title: "Image Compressor Online Free Tool",
   description:
-    "Compress image to 10kb, 20kb, or 50kb with our fastest image compressor online free tool and reduce image size without losing quality.",
+    "Compress image to 10kb, 20kb, or 50kb with our image compressor online free tool and reduce image size without losing quality.",
   keywords: seoKeywords,
   openGraph: {
     title: "Image Compressor Online Free",
@@ -41,7 +41,7 @@ export default function ImageCompressorPage() {
           Fast image optimization for social and web uploads
         </h2>
         <p>
-          This page is designed for users who need the fastest image compressor online free experience
+          This page is designed for users who need a simple image compressor online free experience
           without complicated options. You can compress image to 10kb for strict form limits, compress
           image to 20kb for lightweight previews, or compress image to 50kb for profile photos and
           documents. The optimization flow is built to reduce image size without losing quality in normal
@@ -58,7 +58,7 @@ export default function ImageCompressorPage() {
         <h3 className="text-base font-semibold text-zinc-900">Features</h3>
         <ul className="list-inside list-disc space-y-2">
           <li>Supports practical targets like compress image to 10kb, 20kb, and 50kb.</li>
-          <li>Cloudinary-powered optimization with up to 90% image compression on supported files.</li>
+          <li>Cloudinary-powered optimization with significant size reduction on supported files.</li>
           <li>Simple upload and download workflow with no extra setup required.</li>
           <li>Useful for make image smaller for WhatsApp and compress image for Instagram upload.</li>
         </ul>

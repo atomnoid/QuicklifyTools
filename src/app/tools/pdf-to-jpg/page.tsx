@@ -6,7 +6,7 @@ import { seoKeywords, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "PDF to JPG High Quality Free Converter",
   description:
-    "Use pdf to jpg high quality free conversion and convert pdf to image without losing quality with our no signup pdf converter workflow.",
+    "Use pdf to jpg high quality free conversion and convert pdf to image without losing quality with a simple browser workflow.",
   keywords: seoKeywords,
   openGraph: {
     title: "PDF to JPG Converter Free",
@@ -40,8 +40,8 @@ export default function PdfToJpgPage() {
         <p>
           This page focuses on pdf to jpg high quality free output with a clean user flow. If you need to
           convert pdf to image without losing quality for reports, scanned notes, handouts, or product
-          catalogs, this tool helps you export page images quickly. It is designed as a no signup pdf
-          converter, so you can convert documents without creating an account or sharing extra personal
+          catalogs, this tool helps you export page images quickly. It is designed for low-friction use,
+          so you can convert documents without unnecessary steps or sharing extra personal
           details.
         </p>
 
@@ -56,7 +56,7 @@ export default function PdfToJpgPage() {
         <ul className="list-inside list-disc space-y-2">
           <li>PDF.js-based rendering for clear page output.</li>
           <li>Single page or full ZIP download options.</li>
-          <li>No signup pdf converter experience for quick usage.</li>
+          <li>Simple browser-based workflow for quick usage.</li>
           <li>Works on desktop and mobile with simple controls.</li>
         </ul>
 
@@ -82,8 +82,8 @@ export default function PdfToJpgPage() {
         <h3 className="text-base font-semibold text-zinc-900">FAQ</h3>
         <div className="space-y-3">
           <p>
-            <strong>Is this a no signup pdf converter?</strong> Yes, upload and convert directly without
-            account creation.
+            <strong>Do I need an account?</strong> No, upload and convert directly without account
+            creation.
           </p>
           <p>
             <strong>Can I convert pdf to image without losing quality?</strong> The tool targets high

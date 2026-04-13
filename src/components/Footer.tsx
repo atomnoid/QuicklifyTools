@@ -47,6 +47,11 @@ export function Footer() {
                   Terms &amp; Conditions
                 </a>
               </li>
+              <li>
+                <a href="/disclaimer" className="text-sm text-zinc-600 hover:text-zinc-900">
+                  Disclaimer
+                </a>
+              </li>
             </ul>
           </div>
         </div>
