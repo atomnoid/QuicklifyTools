@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { seoKeywords, site } from "@/lib/site";
+import { RelatedToolsSection } from "@/components/RelatedToolsSection";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "How to Compress Image to 50KB Guide",
+export const metadata: Metadata = buildPageMetadata({
+  title: "How to Compress Image to 50KB - Free Online Guide",
   description:
-    "Learn how to compress image to 50kb, 20kb, or 10kb with practical quality tips and free tool links.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: "How to Compress Image to 50KB Guide",
-    description:
-      "Step-by-step guide to compress image to 50kb while keeping clear quality for web and forms.",
-    url: `${site.url}/guides/how-to-compress-image-to-50kb`,
-    siteName: site.name,
-    type: "article",
-  },
-  alternates: { canonical: "/guides/how-to-compress-image-to-50kb" },
-};
+    "Learn how to compress image to 50KB with quality-focused steps, use cases, and pro tips for forms, email, and web uploads.",
+  path: "/guides/how-to-compress-image-to-50kb",
+  type: "article",
+});
 
 export default function CompressImage50KbGuidePage() {
   return (
@@ -74,6 +67,18 @@ export default function CompressImage50KbGuidePage() {
           to back without account friction. For many users, this is the easiest way to stay productive on
           both mobile and desktop.
         </p>
+        <p>
+          If you are managing content for a business website, image compression also helps with Core Web
+          Vitals. Lighter image files improve Largest Contentful Paint and reduce bounce rate, especially on
+          mobile traffic. Even a small reduction per image can produce meaningful gains when multiplied
+          across landing pages, blog posts, and product galleries.
+        </p>
+        <p>
+          For email campaigns, reducing image size improves delivery speed and prevents attachment rejections
+          in stricter inbox environments. Teams that send proposals, contracts, or visual proofs by email
+          can use this method to keep communications smooth and professional. This is one reason compression
+          is a valuable routine, not just a one-time fix.
+        </p>
 
         <p>
           If you are preparing visuals for social platforms, check our{" "}
@@ -90,7 +95,26 @@ export default function CompressImage50KbGuidePage() {
           </Link>
           .
         </p>
+        <h2 className="text-xl font-semibold text-zinc-900">FAQ</h2>
+        <p>
+          <strong>Can I compress image to 50KB exactly every time?</strong> Exact output is not guaranteed
+          because complexity varies by image, but you can usually get close with one or two optimization
+          rounds.
+        </p>
+        <p>
+          <strong>Will this affect readability for IDs and documents?</strong> If the source image is clear
+          and you avoid over-compression, readability usually stays strong for practical form use.
+        </p>
+        <p>
+          <strong>Is this method mobile friendly?</strong> Yes. You can complete the full workflow from your
+          phone with no signup required.
+        </p>
+        <p>
+          <strong>Is it secure to use online compressors?</strong> Use trusted tools that clearly explain
+          processing behavior and avoid uploading sensitive files unless necessary.
+        </p>
       </div>
+      <RelatedToolsSection currentToolSlug="image-compressor" />
     </div>
   );
 }

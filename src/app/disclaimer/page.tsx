@@ -1,25 +1,12 @@
 import type { Metadata } from "next";
-import { seoKeywords, site } from "@/lib/site";
+import { buildPageMetadata, site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Disclaimer | QuicklifyTools",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Disclaimer - QuicklifyTools Service and Content Notice",
   description:
-    "Read the QuicklifyTools disclaimer about tool accuracy, third-party services, and user responsibility for uploaded files.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: `${site.name} Disclaimer`,
-    description: `Understand the usage disclaimer and content limitations for ${site.name}.`,
-    url: `${site.url}/disclaimer`,
-    siteName: site.name,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${site.name} Disclaimer`,
-    description: `Understand the usage disclaimer and content limitations for ${site.name}.`,
-  },
-  alternates: { canonical: "/disclaimer" },
-};
+    "Read the QuicklifyTools disclaimer on conversion accuracy, third-party dependencies, and user responsibilities when processing files.",
+  path: "/disclaimer",
+});
 
 export default function DisclaimerPage() {
   return (

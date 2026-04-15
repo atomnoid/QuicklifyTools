@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { seoKeywords, site } from "@/lib/site";
+import { buildPageMetadata, site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | QuicklifyTools",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Privacy Policy - QuicklifyTools Data and Cookie Policy",
   description:
-    "Read QuicklifyTools privacy policy to understand how file processing, analytics, and user data are handled.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: `${site.name} Privacy Policy`,
-    description: `Read how ${site.name} handles file processing and privacy.`,
-    url: `${site.url}/privacy`,
-    siteName: site.name,
-    type: "website",
-  },
-  alternates: { canonical: "/privacy" },
-};
+    "Read QuicklifyTools privacy policy covering cookies, ad services, analytics, file processing, and how we protect user data.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
@@ -51,6 +43,13 @@ export default function PrivacyPage() {
         <p>
           We use only cookies and similar technologies that are necessary for the site to function
           or that you explicitly accept (for example, analytics, if enabled).
+        </p>
+
+        <h2 className="text-xl font-semibold text-zinc-900">Advertising and AdSense</h2>
+        <p>
+          We may display third-party ads, including Google AdSense. Advertising partners may use cookies or
+          similar technologies to deliver relevant ads and measure campaign performance. You can manage ad
+          personalization through your Google ad settings.
         </p>
 
         <h2 className="text-xl font-semibold text-zinc-900">Children</h2>

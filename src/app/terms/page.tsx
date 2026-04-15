@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import { seoKeywords, site } from "@/lib/site";
+import { buildPageMetadata, site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions | QuicklifyTools",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Terms and Conditions - QuicklifyTools Usage Terms",
   description:
-    "Review QuicklifyTools terms and conditions for using our image and PDF conversion tools.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: `${site.name} Terms & Conditions`,
-    description: `Read terms for using ${site.name} and file conversion tools.`,
-    url: `${site.url}/terms`,
-    siteName: site.name,
-    type: "website",
-  },
-  alternates: { canonical: "/terms" },
-};
+    "Review QuicklifyTools terms and conditions for tool usage, service limitations, third-party services, and legal responsibilities.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

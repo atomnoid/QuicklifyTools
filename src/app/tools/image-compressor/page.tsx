@@ -1,29 +1,23 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { RelatedToolsSection } from "@/components/RelatedToolsSection";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { ImageCompressorTool } from "@/components/tools/ImageCompressorTool";
-import { seoKeywords, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Image Compressor Online Free Tool",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Free Online Image Compressor - Fast, No Signup Required",
   description:
-    "Compress image to 10kb, 20kb, or 50kb with our image compressor online free tool and reduce image size without losing quality.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: "Image Compressor Online Free",
-    description:
-      "Compress image without losing quality with Cloudinary-powered optimization and quick download.",
-    url: `${site.url}/tools/image-compressor`,
-    siteName: site.name,
-    type: "website",
-  },
-  alternates: { canonical: "/tools/image-compressor" },
-};
+    "Compress JPG, PNG, and WebP images instantly with secure and private processing. Free online image compressor that works in your browser with no signup required.",
+  path: "/tools/image-compressor",
+});
 
 export default function ImageCompressorPage() {
   return (
     <ToolPageLayout
       title="Image Compressor"
-      description="Upload an image. We send it to Cloudinary with automatic quality optimization, then you can download the smaller file."
+      description="Free online image compressor that helps you reduce file size quickly. No signup required and works instantly in your browser."
+      toolHref="/tools/image-compressor"
       icon={
         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
           <path
@@ -37,67 +31,85 @@ export default function ImageCompressorPage() {
     >
       <ImageCompressorTool />
       <section className="mt-8 space-y-4 border-t border-border pt-8 text-sm leading-relaxed text-zinc-600">
-        <h2 className="text-lg font-semibold text-zinc-900">
-          Fast image optimization for social and web uploads
-        </h2>
+        <h2 className="text-lg font-semibold text-zinc-900">What this tool does</h2>
         <p>
-          This page is designed for users who need a simple image compressor online free experience
-          without complicated options. You can compress image to 10kb for strict form limits, compress
-          image to 20kb for lightweight previews, or compress image to 50kb for profile photos and
-          documents. The optimization flow is built to reduce image size without losing quality in normal
-          use cases, helping creators, students, and business teams publish faster files with less effort.
+          QuicklifyTools Image Compressor is built for real-world upload problems: oversized product photos,
+          profile pictures that fail document portals, and blog images that slow down your pages. This free
+          online tool gives you a clean upload-to-download workflow with no signup required. It works
+          instantly in your browser and is optimized for both desktop and mobile users.
+        </p>
+        <p>
+          The compression engine focuses on balancing file size and quality, so your image remains usable
+          for social posts, websites, and email attachments. Whether you need to compress image to 50KB for
+          an application form, or simply reduce a hero image for faster page speed, the process is simple
+          and reliable. Secure and private processing is a core part of the experience, and we never add
+          distracting complexity.
         </p>
 
-        <h3 className="text-base font-semibold text-zinc-900">How to use</h3>
+        <h2 className="text-base font-semibold text-zinc-900">How to Use</h2>
         <ol className="list-inside list-decimal space-y-2">
-          <li>Upload your image file from mobile or desktop.</li>
-          <li>Wait while the compressor processes your file in seconds.</li>
-          <li>Check original and output size, then download the result.</li>
+          <li>Upload a JPG, PNG, or WebP image from your device.</li>
+          <li>Let the tool process your file and optimize quality automatically.</li>
+          <li>Review the output file size and visual quality.</li>
+          <li>Download the compressed image and upload it where needed.</li>
         </ol>
 
-        <h3 className="text-base font-semibold text-zinc-900">Features</h3>
+        <h2 className="text-base font-semibold text-zinc-900">Best Use Cases</h2>
         <ul className="list-inside list-disc space-y-2">
-          <li>Supports practical targets like compress image to 10kb, 20kb, and 50kb.</li>
-          <li>Cloudinary-powered optimization with significant size reduction on supported files.</li>
-          <li>Simple upload and download workflow with no extra setup required.</li>
-          <li>Useful for make image smaller for WhatsApp and compress image for Instagram upload.</li>
+          <li>Compressing images for Instagram posts, reels covers, and story uploads.</li>
+          <li>Making images smaller for faster website performance and SEO.</li>
+          <li>Reducing file size for email attachments and team communication.</li>
+          <li>Meeting strict file limits for forms, resumes, and online applications.</li>
         </ul>
 
+        <h2 className="text-base font-semibold text-zinc-900">Benefits</h2>
+        <ul className="list-inside list-disc space-y-2">
+          <li>Free online tool with no signup required.</li>
+          <li>Works instantly in your browser on mobile and desktop.</li>
+          <li>Secure and private processing with a clean user experience.</li>
+          <li>Fast workflow that saves time for creators, freelancers, and teams.</li>
+        </ul>
+
+        <h2 className="text-base font-semibold text-zinc-900">Pro Tips</h2>
         <p>
-          If your main goal is faster page speed, this utility helps you shrink large uploads before they
-          reach your CMS or social channel. The result is often better engagement because images load
-          quickly, especially on mobile data connections. It is also helpful when client portals reject
-          oversized images and you need a quick conversion without opening design software.
+          Start with your original image whenever possible, because repeated compression can gradually reduce
+          clarity. If text appears soft after compression, resize the source image before running another
+          pass. For web publishing, compress first, then upload to your CMS to reduce bandwidth costs and
+          improve page speed.
         </p>
         <p>
-          For best quality, start with the original file and avoid repeated re-compression. If you also
-          need document conversion, visit our{" "}
-          <a href="/tools/pdf-to-jpg" className="font-medium text-zinc-900 underline">
+          If your project includes documents, pair this with{" "}
+          <Link href="/tools/pdf-to-jpg" className="font-medium text-zinc-900 underline">
             PDF to JPG tool
-          </a>{" "}
+          </Link>{" "}
           and{" "}
-          <a href="/tools/jpg-to-pdf" className="font-medium text-zinc-900 underline">
+          <Link href="/tools/jpg-to-pdf" className="font-medium text-zinc-900 underline">
             JPG to PDF tool
-          </a>{" "}
-          to complete your full image and PDF workflow.
+          </Link>{" "}
+          so you can handle both visual and document workflows in one place.
         </p>
 
-        <h3 className="text-base font-semibold text-zinc-900">FAQ</h3>
+        <h2 className="text-base font-semibold text-zinc-900">FAQ</h2>
         <div className="space-y-3">
           <p>
-            <strong>Can I compress image to 50kb exactly?</strong> You can target this range, but exact
-            output may vary based on image detail and dimensions.
+            <strong>Is this image compressor free to use?</strong> Yes. It is a free online tool with no
+            signup required.
           </p>
           <p>
-            <strong>Will quality stay usable?</strong> In most cases yes, because the tool aims to reduce
-            image size without losing quality for practical web and social usage.
+            <strong>Does it work on iPhone and Android?</strong> Yes. It works instantly in your browser on
+            mobile and desktop devices.
           </p>
           <p>
-            <strong>Can this help with WhatsApp and Instagram?</strong> Yes, you can make image smaller
-            for WhatsApp and compress image for Instagram upload quickly from one page.
+            <strong>Can I compress image to 50KB exactly?</strong> You can usually get close, but exact file
+            size depends on image details and dimensions.
+          </p>
+          <p>
+            <strong>Is my image data private?</strong> We prioritize secure and private processing and keep
+            the workflow focused on safe file handling.
           </p>
         </div>
       </section>
+      <RelatedToolsSection currentToolSlug="image-compressor" />
     </ToolPageLayout>
   );
 }

@@ -1,29 +1,23 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { RelatedToolsSection } from "@/components/RelatedToolsSection";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { JpgToPdfTool } from "@/components/tools/JpgToPdfTool";
-import { seoKeywords, site } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "JPG to PDF in Seconds | Online Converter",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Free Online JPG to PDF Converter - Fast, No Signup",
   description:
-    "Convert JPG to PDF in seconds with a simple browser-based workflow built for students, professionals, and mobile users.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: "JPG to PDF Converter Online",
-    description:
-      "Convert JPG images into PDF pages with a fast, clean, mobile-friendly browser tool.",
-    url: `${site.url}/tools/jpg-to-pdf`,
-    siteName: site.name,
-    type: "website",
-  },
-  alternates: { canonical: "/tools/jpg-to-pdf" },
-};
+    "Combine JPG images into one PDF in seconds. Free online JPG to PDF converter with secure and private processing that works instantly in your browser.",
+  path: "/tools/jpg-to-pdf",
+});
 
 export default function JpgToPdfPage() {
   return (
     <ToolPageLayout
       title="JPG to PDF"
-      description="Select one or more JPG files. We build a single PDF with one image per page, centered on A4."
+      description="Convert one or more JPG images into a clean PDF instantly. Free online, no signup required, and built for secure and private processing."
+      toolHref="/tools/jpg-to-pdf"
       icon={
         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
           <path
@@ -37,64 +31,83 @@ export default function JpgToPdfPage() {
     >
       <JpgToPdfTool />
       <section className="mt-8 space-y-4 border-t border-border pt-8 text-sm leading-relaxed text-zinc-600">
-        <h2 className="text-lg font-semibold text-zinc-900">JPG to PDF in seconds with clean layout</h2>
+        <h2 className="text-lg font-semibold text-zinc-900">What this tool does</h2>
         <p>
-          This tool is built for people who need jpg to pdf in seconds without opening desktop software.
-          Upload one or more JPG files, and the converter generates a single PDF that is ready for
-          assignment submissions, business paperwork, portfolio sharing, and form portals. The flow is
-          simple enough for beginners while still useful for frequent users who convert files every day.
+          QuicklifyTools JPG to PDF Converter is built for users who want fast, professional file output
+          without technical friction. Upload one image or a full set of JPG files, and the tool combines
+          them into a single downloadable PDF. It is a free online tool with no signup required, designed
+          for students, teams, and independent professionals.
+        </p>
+        <p>
+          This page is especially helpful for common USA audience needs such as email attachments, school
+          submissions, insurance documents, receipts, and business records. Because the workflow works
+          instantly in your browser, you can run quick conversions from laptop or phone and keep momentum.
+          Secure and private processing keeps the experience trustworthy and production-ready.
         </p>
 
-        <h3 className="text-base font-semibold text-zinc-900">How to use</h3>
+        <h2 className="text-base font-semibold text-zinc-900">How to Use</h2>
         <ol className="list-inside list-decimal space-y-2">
-          <li>Select one or more JPG images.</li>
-          <li>Wait while the PDF is generated in your browser.</li>
-          <li>Download the final PDF and share it anywhere.</li>
+          <li>Upload one or more JPG files in your preferred page order.</li>
+          <li>Let the converter generate a combined PDF in seconds.</li>
+          <li>Download the PDF and review page sequence and clarity.</li>
+          <li>Share the final document through email, portal, or cloud storage.</li>
         </ol>
 
-        <h3 className="text-base font-semibold text-zinc-900">Features</h3>
+        <h2 className="text-base font-semibold text-zinc-900">Best Use Cases</h2>
         <ul className="list-inside list-disc space-y-2">
-          <li>Converts multiple JPG images into one PDF document quickly.</li>
-          <li>No signup pdf converter workflow for fast usage.</li>
-          <li>Mobile-friendly interface with clear controls.</li>
-          <li>Useful companion to PDF to JPG and image compression tools.</li>
+          <li>Combining scanned pages into one shareable document.</li>
+          <li>Creating PDFs for college, legal, and HR upload portals.</li>
+          <li>Merging receipts and proofs for accounting or reimbursement.</li>
+          <li>Packaging visual reports or portfolios for client delivery.</li>
         </ul>
 
+        <h2 className="text-base font-semibold text-zinc-900">Benefits</h2>
+        <ul className="list-inside list-disc space-y-2">
+          <li>Free online converter with no signup required.</li>
+          <li>Works instantly in your browser on desktop and mobile.</li>
+          <li>Secure and private processing with minimal steps.</li>
+          <li>Professional PDF output that is ready to share.</li>
+        </ul>
+
+        <h2 className="text-base font-semibold text-zinc-900">Pro Tips</h2>
         <p>
-          Because the conversion runs in-browser, your workflow stays fast on both desktop and mobile.
-          This is helpful for free online tools for students who need to submit scanned notes and homework
-          as PDFs, as well as freelancers who send receipts and signed pages to clients. If you are
-          comparing options and looking for a practical PDF converter, this tool keeps the
-          process clean, fast, and practical.
+          Rename files before upload (for example, page-1, page-2, page-3) so final PDF order is clear and
+          predictable. If your images are too heavy, compress them first for smaller PDFs and faster email
+          delivery. For polished results, avoid blurry source images and keep consistent orientation.
         </p>
         <p>
-          For better output quality, use clear source images and select files in the order you want pages
-          to appear. If you need to extract images from PDFs first, use our{" "}
-          <a href="/tools/pdf-to-jpg" className="font-medium text-zinc-900 underline">
+          To convert existing PDF pages into images first, use{" "}
+          <Link href="/tools/pdf-to-jpg" className="font-medium text-zinc-900 underline">
             PDF to JPG
-          </a>{" "}
-          tool. You can also optimize large image files with the{" "}
-          <a href="/tools/image-compressor" className="font-medium text-zinc-900 underline">
+          </Link>{" "}
+          and optimize large files with{" "}
+          <Link href="/tools/image-compressor" className="font-medium text-zinc-900 underline">
             Image Compressor
-          </a>{" "}
-          before combining them into a final PDF.
+          </Link>{" "}
+          before creating your final document.
         </p>
 
-        <h3 className="text-base font-semibold text-zinc-900">FAQ</h3>
+        <h2 className="text-base font-semibold text-zinc-900">FAQ</h2>
         <div className="space-y-3">
           <p>
             <strong>Can I create one PDF from many images?</strong> Yes, select multiple JPG files and
             the tool will combine them in your chosen order.
           </p>
           <p>
-            <strong>How fast is conversion?</strong> In most cases you can create JPG to PDF in seconds,
-            depending on image size and device speed.
+            <strong>Do I need to create an account?</strong> No. This free online tool works with no signup
+            required.
           </p>
           <p>
-            <strong>Do I need an account?</strong> No, it works with a quick upload-to-download flow.
+            <strong>Is the process browser-based?</strong> Yes, it works instantly in your browser across
+            modern devices.
+          </p>
+          <p>
+            <strong>Can I use this for business files?</strong> Yes, it is suitable for invoices, reports,
+            receipts, and document submissions.
           </p>
         </div>
       </section>
+      <RelatedToolsSection currentToolSlug="jpg-to-pdf" />
     </ToolPageLayout>
   );
 }

@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { seoKeywords, site } from "@/lib/site";
+import { RelatedToolsSection } from "@/components/RelatedToolsSection";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Compress Image for WhatsApp & Instagram",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Compress Image for WhatsApp and Instagram - Fast Guide",
   description:
-    "Learn to make image smaller for WhatsApp and compress image for Instagram upload with quality-focused steps.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: "Compress Image for WhatsApp & Instagram",
-    description:
-      "Step-by-step method to make image smaller for WhatsApp and optimize Instagram uploads quickly.",
-    url: `${site.url}/guides/compress-image-for-whatsapp-instagram`,
-    siteName: site.name,
-    type: "article",
-  },
-  alternates: { canonical: "/guides/compress-image-for-whatsapp-instagram" },
-};
+    "Step-by-step guide to compress images for WhatsApp and Instagram with better quality, smaller size, and faster uploads.",
+  path: "/guides/compress-image-for-whatsapp-instagram",
+  type: "article",
+});
 
 export default function CompressImageForSocialGuidePage() {
   return (
@@ -73,6 +66,18 @@ export default function CompressImageForSocialGuidePage() {
           so you can move between social-ready media and formal files quickly. That is especially useful
           for free online tools for students who need both visual posts and submission-ready documents.
         </p>
+        <p>
+          From an SEO and content marketing perspective, optimized social visuals also benefit your broader
+          funnel. Faster-loading images lead to better engagement when you repurpose social creative on
+          landing pages or blog posts. Teams that maintain brand consistency can prepare one high-quality
+          master image and export lightweight variants for each platform without losing professional polish.
+        </p>
+        <p>
+          Another practical advantage is operational speed. When your files are already compressed before
+          upload, social posting workflows become more predictable during launches, events, or time-sensitive
+          campaigns. This matters for agencies and creators who publish frequently and need repeatable output
+          quality across multiple client accounts.
+        </p>
 
         <p>
           If you also handle documents, combine this flow with{" "}
@@ -89,7 +94,25 @@ export default function CompressImageForSocialGuidePage() {
           </Link>{" "}
           for upload forms with fixed size rules.
         </p>
+        <h2 className="text-xl font-semibold text-zinc-900">FAQ</h2>
+        <p>
+          <strong>What image format is best for WhatsApp and Instagram?</strong> JPG is usually the most
+          practical option for photos because it provides strong compression with acceptable quality.
+        </p>
+        <p>
+          <strong>Can I do this on mobile without apps?</strong> Yes. The full workflow works instantly in
+          your browser with no signup required.
+        </p>
+        <p>
+          <strong>Does compression always reduce quality?</strong> Some quality change is normal, but with
+          smart optimization it can remain visually strong for social publishing.
+        </p>
+        <p>
+          <strong>Is this useful for brand teams?</strong> Absolutely. It helps keep output size consistent
+          and speeds up approvals, uploads, and campaign execution.
+        </p>
       </div>
+      <RelatedToolsSection currentToolSlug="image-compressor" />
     </div>
   );
 }

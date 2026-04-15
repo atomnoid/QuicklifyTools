@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { seoKeywords, site, tools } from "@/lib/site";
+import { buildPageMetadata, site, tools } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About QuicklifyTools | Fast File Conversion",
+export const metadata: Metadata = buildPageMetadata({
+  title: "About QuicklifyTools - Professional Free Online Tools",
   description:
-    "Learn how QuicklifyTools delivers free online tools for students with practical image and PDF workflows.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: `About ${site.name}`,
-    description: `Learn how ${site.name} delivers fast image and PDF utilities.`,
-    url: `${site.url}/about`,
-    siteName: site.name,
-    type: "website",
-  },
-  alternates: { canonical: "/about" },
-};
+    "Learn about QuicklifyTools, our mission, and how we deliver secure and private processing for free online image and PDF tools with no signup required.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

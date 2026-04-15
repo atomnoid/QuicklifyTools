@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { RecentlyUsedTools } from "@/components/RecentlyUsedTools";
 import { ToolCard } from "@/components/ToolCard";
-import { seoKeywords, site, tools } from "@/lib/site";
+import { buildPageMetadata, site, tools } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Free Online Tools for Images & PDFs – Fast & Simple",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Free Online Image & PDF Tools - Fast, No Signup",
   description:
-    "Free online tools for students and creators, including an image compressor, PDF converter, and practical file utilities that work on mobile and desktop.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: "Free Online Tools for Images & PDFs – Fast & Simple",
-    description:
-      "Image compressor online free, PDF to JPG converter free, and JPG to PDF converter online in one clean, fast website.",
-    url: site.url,
-    siteName: site.name,
-    type: "website",
-  },
-  alternates: { canonical: "/" },
-};
+    "Use free online tools to compress images and convert PDF files in seconds. Works instantly in your browser with secure and private processing.",
+  path: "/",
+});
 
 function CompressIcon() {
   return (
@@ -125,6 +117,27 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+      <section className="mx-auto max-w-5xl px-4 pb-14 sm:px-6">
+        <div className="rounded-xl border border-border bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Popular Tools</h2>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+            Start with the most-used workflows on QuicklifyTools. Every tool is a free online tool with no
+            signup required and works instantly in your browser.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {tools.slice(0, 3).map((tool) => (
+              <Link
+                key={tool.slug}
+                href={tool.href}
+                className="rounded-lg border border-border px-4 py-3 text-sm font-medium text-zinc-800 transition hover:bg-surface"
+              >
+                {tool.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      <RecentlyUsedTools />
 
       <section className="mx-auto max-w-5xl px-4 pb-4 sm:px-6">
         <AdPlaceholder label="Between-content ad slot (responsive rectangle)" />

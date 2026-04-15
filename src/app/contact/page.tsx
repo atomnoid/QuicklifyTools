@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { seoKeywords, site } from "@/lib/site";
+import { ContactForm } from "@/components/contact/ContactForm";
+import { buildPageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact QuicklifyTools Support Team",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Contact QuicklifyTools - Support and Business Inquiries",
   description:
-    "Contact QuicklifyTools for support, feedback, or partnership requests related to image and PDF tools.",
-  keywords: seoKeywords,
-  openGraph: {
-    title: `Contact ${site.name}`,
-    description: `Get in touch with ${site.name} for support, feedback, or business questions.`,
-    url: `${site.url}/contact`,
-    siteName: site.name,
-    type: "website",
-  },
-  alternates: { canonical: "/contact" },
-};
+    "Contact QuicklifyTools for support, partnerships, or feedback. Reach us by email or contact form for fast assistance.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const email = "ayushsocials511@gmail.com";
@@ -24,7 +17,8 @@ export default function ContactPage() {
       <div className="card-soft w-full p-8 sm:p-10">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-900">Contact Us</h1>
         <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-zinc-600 sm:text-base">
-          If you have any questions, suggestions, or feedback, feel free to reach out to us.
+          Have a question about our free online tools? Reach us by email or use the contact form below.
+          We are happy to help with support, quality feedback, and business inquiries.
         </p>
 
         <a
@@ -49,6 +43,7 @@ export default function ContactPage() {
           .
         </p>
       </div>
+      <ContactForm />
     </div>
   );
 }
