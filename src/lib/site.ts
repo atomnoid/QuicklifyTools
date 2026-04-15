@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 export const site = {
   name: "QuicklifyTools",
   domain: "QuicklifyTools.com",
@@ -54,3 +56,62 @@ export const tools: {
     href: "/tools/jpg-to-pdf",
   },
 ];
+
+export const guideLinks = [
+  {
+    title: "How to Compress Image to 50KB",
+    href: "/guides/how-to-compress-image-to-50kb",
+  },
+  {
+    title: "Compress Image for WhatsApp & Instagram",
+    href: "/guides/compress-image-for-whatsapp-instagram",
+  },
+  {
+    title: "Best Free PDF Converter Online Guide",
+    href: "/guides/best-free-pdf-converter-online-guide",
+  },
+] as const;
+
+type MetaInput = {
+  title: string;
+  description: string;
+  path: string;
+  type?: "website" | "article";
+};
+
+export function buildPageMetadata({
+  title,
+  description,
+  path,
+  type = "website",
+}: MetaInput): Metadata {
+  const url = `${site.url}${path}`;
+  return {
+    title,
+    description,
+    keywords: seoKeywords,
+    alternates: { canonical: path },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: site.name,
+      type,
+      images: [
+        {
+          url: "/favicon.svg",
+          width: 512,
+          height: 512,
+          alt: `${site.name} logo`,
+        },
+      ],
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/favicon.svg"],
+    },
+  };
+}
