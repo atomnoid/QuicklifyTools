@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site, tools } from "@/lib/site";
 
 export function Footer() {
@@ -18,18 +19,18 @@ export function Footer() {
                 ayushsocials511@gmail.com
               </a>
             </p>
-            <a href="/contact" className="mt-2 inline-block text-sm text-zinc-700 underline hover:no-underline">
+            <Link href="/contact" className="mt-2 inline-block text-sm text-zinc-700 underline hover:no-underline">
               Contact Us
-            </a>
+            </Link>
           </div>
           <div>
             <p className="text-sm font-semibold text-zinc-900">Tools</p>
             <ul className="mt-3 space-y-2">
               {tools.map((t) => (
                 <li key={t.slug}>
-                  <a href={t.href} className="text-sm text-zinc-600 hover:text-zinc-900">
+                  <Link href={t.href} className="text-sm text-zinc-600 hover:text-zinc-900">
                     {t.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -38,19 +39,29 @@ export function Footer() {
             <p className="text-sm font-semibold text-zinc-900">Legal</p>
             <ul className="mt-3 space-y-2">
               <li>
-                <a href="/privacy" className="text-sm text-zinc-600 hover:text-zinc-900">
+                <Link href="/privacy" className="text-sm text-zinc-600 hover:text-zinc-900">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/terms" className="text-sm text-zinc-600 hover:text-zinc-900">
+                <Link href="/terms" className="text-sm text-zinc-600 hover:text-zinc-900">
                   Terms &amp; Conditions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/disclaimer" className="text-sm text-zinc-600 hover:text-zinc-900">
+                <Link href="/disclaimer" className="text-sm text-zinc-600 hover:text-zinc-900">
                   Disclaimer
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm text-zinc-600 hover:text-zinc-900">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides/best-free-pdf-converter-online-guide" className="text-sm text-zinc-600 hover:text-zinc-900">
+                  Blog / Guides
+                </Link>
               </li>
             </ul>
           </div>
