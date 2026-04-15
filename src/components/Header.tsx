@@ -6,6 +6,7 @@ import { site, tools } from "@/lib/site";
 
 const nav = [
   { href: "/", label: "Home" },
+  { href: "/guides/how-to-compress-image-to-50kb", label: "Guides" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact Us" },
 ];
