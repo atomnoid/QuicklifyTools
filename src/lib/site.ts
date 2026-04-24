@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 
 export const site = {
   name: "QuicklifyTools",
-  domain: "QuicklifyTools.com",
+  domain: "quicklifytools.com",
   url: "https://quicklifytools.com",
   title: "QuicklifyTools — Free Online Image & PDF Tools",
   description:
-    "Compress images with Cloudinary, convert PDF to JPG with PDF.js, and merge JPGs into PDF — fast, free, and mobile-friendly at QuicklifyTools.com.",
+    "Compress images with Cloudinary, convert PDF to JPG with PDF.js, and merge JPGs into PDF — fast, free, and mobile-friendly at quicklifytools.com.",
 } as const;
 
 export const seoKeywords = [
