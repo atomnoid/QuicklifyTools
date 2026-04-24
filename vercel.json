@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://quicklifytools.com/$1",
+      "status": 308,
+      "host": "www.quicklifytools.com"
+    }
+  ]
+}
