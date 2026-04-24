@@ -14,7 +14,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL("https://quicklifytools.com"),
   title: {
     default: "QuicklifyTools",
     template: "%s | QuicklifyTools",
@@ -24,17 +24,23 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  alternates: {
+    canonical: "https://quicklifytools.com",
+    languages: {
+      en: "https://quicklifytools.com",
+    },
+  },
   openGraph: {
     title: site.title,
     description: site.description,
-    url: site.url,
-    siteName: site.name,
+    url: "https://quicklifytools.com",
+    siteName: "QuicklifyTools",
     images: [
       {
         url: "/favicon.svg",
         width: 512,
         height: 512,
-        alt: `${site.name} logo`,
+        alt: "QuicklifyTools logo",
       },
     ],
     type: "website",
