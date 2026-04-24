@@ -63,6 +63,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-adsense-account" content="ca-pub-9545213366780547" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9545213366780547"
+     crossorigin="anonymous"></script>
       </head>
       <body className={`${geistSans.className} flex min-h-screen flex-col antialiased`}>
         <Header />
