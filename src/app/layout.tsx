@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -65,6 +66,14 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-9545213366780547" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9545213366780547"
      crossOrigin="anonymous"></script>
+        {/* Google tag (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-EZQR9NH81Z" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-EZQR9NH81Z');`}
+        </Script>
       </head>
       <body className={`${geistSans.className} flex min-h-screen flex-col antialiased`}>
         <Header />
