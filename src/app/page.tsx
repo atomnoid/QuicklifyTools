@@ -4,6 +4,7 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { RecentlyUsedTools } from "@/components/RecentlyUsedTools";
 import { ToolCard } from "@/components/ToolCard";
 import { buildPageMetadata, site, tools } from "@/lib/site";
+import { blogs } from "@/lib/blogs";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Free Online Image & PDF Tools - Fast, No Signup",
@@ -141,6 +142,47 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-5xl px-4 pb-4 sm:px-6">
         <AdPlaceholder label="Between-content ad slot (responsive rectangle)" />
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-semibold tracking-tight text-zinc-900">Latest Blog Articles</h2>
+          <Link
+            href="/blog"
+            className="text-sm font-medium text-zinc-600 hover:text-zinc-900"
+          >
+            View All →
+          </Link>
+        </div>
+        <p className="mt-2 text-sm text-zinc-600">
+          Tips for Indian businesses, creators, and website owners
+        </p>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {blogs.slice(0, 3).map((blog) => (
+            <Link
+              key={blog.slug}
+              href={`/blog/${blog.slug}`}
+              className="group rounded-xl border border-border bg-white p-6 shadow-sm transition hover:shadow-md"
+            >
+              <div className="mb-3 inline-block rounded-full bg-surface px-3 py-1 text-xs font-medium text-zinc-600">
+                {blog.category}
+              </div>
+              <h3 className="text-lg font-semibold text-zinc-900 group-hover:text-zinc-700">
+                {blog.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600 line-clamp-3">
+                {blog.description}
+              </p>
+              <div className="mt-4 text-xs text-zinc-500">
+                {new Date(blog.date).toLocaleDateString("en-IN", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-16 pt-8 sm:px-6">
