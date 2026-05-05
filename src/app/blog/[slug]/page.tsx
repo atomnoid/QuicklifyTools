@@ -8,13 +8,17 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 import fs from "fs";
 import path from "path";
 
+type BlogPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
 export async function generateStaticParams() {
   return blogs.map((blog) => ({
     slug: blog.slug,
   }));
 }
 
-export async function generateMetadata(props: PageProps<'/blog/[slug]'>): Promise<Metadata> {
+export async function generateMetadata(props: BlogPageProps): Promise<Metadata> {
   const { slug } = await props.params;
   const blog = blogs.find((b) => b.slug === slug);
   
@@ -37,7 +41,7 @@ async function getBlogContent(slug: string) {
   return fileContent;
 }
 
-export default async function BlogPage(props: PageProps<'/blog/[slug]'>) {
+export default async function BlogPage(props: BlogPageProps) {
   const { slug } = await props.params;
   const blog = blogs.find((b) => b.slug === slug);
 
