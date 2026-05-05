@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { site, tools } from "@/lib/site";
+import { blogs } from "@/lib/blogs";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -10,6 +11,8 @@ const nav = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact Us" },
 ];
+
+const featuredBlogs = blogs.filter((blog) => blog.featured).slice(0, 3);
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -76,6 +79,36 @@ export function Header() {
               ))}
             </div>
           </div>
+          <div className="relative group">
+            <button
+              type="button"
+              className="flex items-center gap-1 rounded-lg px-2 py-1 text-sm font-medium text-zinc-600 transition hover:bg-surface hover:text-zinc-900"
+            >
+              Blogs
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div className="invisible absolute right-0 top-full z-50 mt-1 w-64 rounded-xl border border-border bg-white py-1 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
+              {featuredBlogs.map((blog) => (
+                <Link
+                  key={blog.slug}
+                  href={`/blog/${blog.slug}`}
+                  className="block px-4 py-2 text-sm text-zinc-700 hover:bg-surface"
+                >
+                  {blog.title}
+                </Link>
+              ))}
+              <div className="border-t border-border">
+                <Link
+                  href="/blog"
+                  className="block px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-surface"
+                >
+                  View All Blogs →
+                </Link>
+              </div>
+            </div>
+          </div>
         </nav>
       </div>
 
@@ -105,6 +138,26 @@ export function Header() {
                 {t.title}
               </Link>
             ))}
+            <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-wide text-zinc-400">
+              Blogs
+            </p>
+            {featuredBlogs.map((blog) => (
+              <Link
+                key={blog.slug}
+                href={`/blog/${blog.slug}`}
+                className="rounded-lg px-3 py-2 text-sm text-zinc-700 hover:bg-surface"
+                onClick={() => setOpen(false)}
+              >
+                {blog.title}
+              </Link>
+            ))}
+            <Link
+              href="/blog"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-surface"
+              onClick={() => setOpen(false)}
+            >
+              View All Blogs →
+            </Link>
           </div>
         </div>
       )}
