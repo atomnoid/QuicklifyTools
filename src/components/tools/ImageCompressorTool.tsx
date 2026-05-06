@@ -15,6 +15,7 @@ export function ImageCompressorTool() {
   const [compressedSize, setCompressedSize] = useState<number | null>(null);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string>("compressed");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const reset = useCallback(() => {
     setStatus("idle");
@@ -23,17 +24,23 @@ export function ImageCompressorTool() {
     setCompressedSize(null);
     setDownloadUrl(null);
     setFileName("compressed");
+    setSelectedFile(null);
   }, []);
 
-  const onFile = useCallback(async (file: File | null) => {
+  const onFileSelect = useCallback((file: File | null) => {
     if (!file) return;
-    reset();
-    setOriginalSize(file.size);
+    setSelectedFile(file);
+    setError(null);
+  }, []);
+
+  const convert = useCallback(async () => {
+    if (!selectedFile) return;
+    setOriginalSize(selectedFile.size);
     setStatus("processing");
     setError(null);
 
     const form = new FormData();
-    form.append("file", file);
+    form.append("file", selectedFile);
 
     try {
       const res = await fetch("/api/compress-image", {
@@ -56,14 +63,14 @@ export function ImageCompressorTool() {
       setDownloadUrl(data.url);
       setCompressedSize(data.compressedSize ?? null);
       if (typeof data.originalSize === "number") setOriginalSize(data.originalSize);
-      const base = file.name.replace(/\.[^.]+$/, "") || "image";
+      const base = selectedFile.name.replace(/\.[^.]+$/, "") || "image";
       setFileName(`${base}-compressed`);
       setStatus("done");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
       setStatus("error");
     }
-  }, [reset]);
+  }, [selectedFile]);
 
   const download = useCallback(async () => {
     if (!downloadUrl) return;
@@ -84,10 +91,29 @@ export function ImageCompressorTool() {
           type="file"
           accept="image/*"
           className="input-dropzone"
-          onChange={(e) => onFile(e.target.files?.[0] ?? null)}
+          onChange={(e) => onFileSelect(e.target.files?.[0] ?? null)}
           disabled={status === "processing"}
         />
       </div>
+
+      {selectedFile && status === "idle" && (
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={convert}
+            className="btn-primary"
+          >
+            Convert
+          </button>
+          <button
+            type="button"
+            onClick={reset}
+            className="btn-secondary"
+          >
+            Clear
+          </button>
+        </div>
+      )}
 
       {status === "processing" && (
         <div className="flex items-center gap-3 rounded-lg bg-surface px-4 py-3 text-sm text-zinc-700">
