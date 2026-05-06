@@ -18,6 +18,7 @@ export function PdfToJpgTool() {
   const [sourceName, setSourceName] = useState("document");
   const [sourceSize, setSourceSize] = useState<number | null>(null);
   const [outputSize, setOutputSize] = useState<number | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const reset = useCallback(() => {
     setStatus("idle");
@@ -27,13 +28,19 @@ export function PdfToJpgTool() {
     setSourceName("document");
     setSourceSize(null);
     setOutputSize(null);
+    setSelectedFile(null);
   }, []);
 
-  const run = useCallback(async (file: File | null) => {
+  const onFileSelect = useCallback((file: File | null) => {
     if (!file) return;
-    reset();
-    setSourceSize(file.size);
-    const base = file.name.replace(/\.pdf$/i, "") || "document";
+    setSelectedFile(file);
+    setError(null);
+  }, []);
+
+  const convert = useCallback(async () => {
+    if (!selectedFile) return;
+    setSourceSize(selectedFile.size);
+    const base = selectedFile.name.replace(/\.pdf$/i, "") || "document";
     setSourceName(base);
     setStatus("processing");
     setError(null);
@@ -42,7 +49,7 @@ export function PdfToJpgTool() {
       const pdfjs = await import("pdfjs-dist");
       pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-      const data = new Uint8Array(await file.arrayBuffer());
+      const data = new Uint8Array(await selectedFile.arrayBuffer());
       const pdf = await pdfjs.getDocument({ data }).promise;
       const out: Blob[] = [];
       const scale = 2;
@@ -75,7 +82,7 @@ export function PdfToJpgTool() {
       setError(e instanceof Error ? e.message : "Could not convert PDF.");
       setStatus("error");
     }
-  }, [reset]);
+  }, [selectedFile]);
 
   const downloadZip = useCallback(async () => {
     if (blobs.length === 0) return;
@@ -122,10 +129,29 @@ export function PdfToJpgTool() {
           type="file"
           accept="application/pdf"
           className="input-dropzone"
-          onChange={(e) => run(e.target.files?.[0] ?? null)}
+          onChange={(e) => onFileSelect(e.target.files?.[0] ?? null)}
           disabled={status === "processing"}
         />
       </div>
+
+      {selectedFile && status === "idle" && (
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={convert}
+            className="btn-primary"
+          >
+            Convert
+          </button>
+          <button
+            type="button"
+            onClick={reset}
+            className="btn-secondary"
+          >
+            Clear
+          </button>
+        </div>
+      )}
 
       {status === "processing" && (
         <div className="flex items-center gap-3 rounded-lg bg-surface px-4 py-3 text-sm text-zinc-700">
