@@ -28,24 +28,37 @@ export function JpgToPdfTool() {
   const [error, setError] = useState<string | null>(null);
   const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
   const [fileName, setFileName] = useState("images");
+  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
 
   const reset = useCallback(() => {
     setStatus("idle");
     setError(null);
     setPdfBlob(null);
     setFileName("images");
+    setSelectedFiles(null);
   }, []);
 
-  const run = useCallback(async (list: FileList | null) => {
-    if (!list?.length) return;
-    const files = Array.from(list).filter((f) => f.type === "image/jpeg" || f.name.toLowerCase().endsWith(".jpg") || f.name.toLowerCase().endsWith(".jpeg"));
+  const onFileSelect = useCallback((files: FileList | null) => {
+    if (!files?.length) return;
+    const validFiles = Array.from(files).filter((f) => f.type === "image/jpeg" || f.name.toLowerCase().endsWith(".jpg") || f.name.toLowerCase().endsWith(".jpeg"));
+    if (validFiles.length === 0) {
+      setError("Please choose one or more JPG/JPEG images.");
+      setStatus("error");
+      return;
+    }
+    setSelectedFiles(files);
+    setError(null);
+  }, []);
+
+  const convert = useCallback(async () => {
+    if (!selectedFiles?.length) return;
+    const files = Array.from(selectedFiles).filter((f) => f.type === "image/jpeg" || f.name.toLowerCase().endsWith(".jpg") || f.name.toLowerCase().endsWith(".jpeg"));
     if (files.length === 0) {
       setError("Please choose one or more JPG/JPEG images.");
       setStatus("error");
       return;
     }
 
-    reset();
     setStatus("processing");
     setError(null);
 
@@ -77,7 +90,7 @@ export function JpgToPdfTool() {
       setError(e instanceof Error ? e.message : "Could not build PDF.");
       setStatus("error");
     }
-  }, [reset]);
+  }, [selectedFiles]);
 
   const download = useCallback(() => {
     if (!pdfBlob) return;
@@ -97,11 +110,30 @@ export function JpgToPdfTool() {
           accept="image/jpeg,.jpg,.jpeg"
           multiple
           className="input-dropzone"
-          onChange={(e) => run(e.target.files)}
+          onChange={(e) => onFileSelect(e.target.files)}
           disabled={status === "processing"}
         />
         <p className="mt-2 text-xs text-zinc-500">JPEG only. Order matches your file selection.</p>
       </div>
+
+      {selectedFiles && status === "idle" && (
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={convert}
+            className="btn-primary"
+          >
+            Convert
+          </button>
+          <button
+            type="button"
+            onClick={reset}
+            className="btn-secondary"
+          >
+            Clear
+          </button>
+        </div>
+      )}
 
       {status === "processing" && (
         <div className="flex items-center gap-3 rounded-lg bg-surface px-4 py-3 text-sm text-zinc-700">
